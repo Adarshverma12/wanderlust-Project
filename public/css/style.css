@@ -1,0 +1,136 @@
+body {
+    font-family: "Josefin Sans", sans-serif !important;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.container {
+    flex: 1;
+}
+
+/* navBar styling */
+.navbar {
+    height: 5.5rem;
+    background-color: white;
+    margin-right: 2rem;
+}
+
+.nav-link {
+    color: #222222 !important;
+}
+
+.fa-compass {
+    font-size: 2.5rem;
+    color: #fe424d;
+}
+
+/* footer styling */
+.footer-container {
+    display: flex;
+    text-align: center;
+    align-items: space-evenly;
+    flex-wrap: wrap;
+    justify-content: center;
+    height: 8rem;
+    background-color: #f8f8f8;
+}
+
+.socials i {
+    font-size: 1.5rem;
+    margin-right: 1.2rem;
+}
+
+.socials,
+.conditions,
+.brand {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.conditions a {
+    text-decoration: none;
+    color: #222222;
+}
+
+.conditions a:hover {
+    text-decoration: underline;
+}
+
+/* card styling */
+.listening-card {
+    border: none !important;
+    margin-bottom: 2rem !important;
+    font-size: 2rem !important;
+}
+.listening-card img:hover {
+    opacity: 0.8;
+}
+
+.card-body {
+    padding: 0 !important;
+    font-size: 0.9rem !important;
+}
+
+.card-img-top {
+    border-radius: 1.2rem !important;
+    width: 95% !important;
+    object-fit: cover !important;
+}
+
+/* for index.ejs */
+.a-links {
+    text-decoration: none;
+}
+
+.card-img-overlay {
+    opacity: 0;
+}
+
+.card-img-overlay:hover {
+    opacity: 0.2;
+    background-color: white;
+}
+
+/* for new.ejs and edit.ejs */
+.add-btn {
+    background-color: #fe424d !important;
+    border: none !important;
+}
+
+/* for show.ejs */
+.show-image {
+    height: 30vh;
+}
+
+.btns {
+    display: flex;
+}
+
+.show-cards {
+    padding-left: 0;
+    padding-right: 0;
+}
+
+.image-container {
+    position: relative;
+    display: inline-block;
+}
+
+.image-container img {
+    width: 100%;
+    height: 20rem;
+    object-fit: cover;
+}
+
+.reviews-heading {
+    font-size: 1.8em;
+    font-weight: bold;
+    color: #333;
+    text-align: center;
+    margin: 20px 0;
+    text-transform: uppercase;
+    padding-bottom: 10px;
+}

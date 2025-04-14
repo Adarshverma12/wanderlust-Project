@@ -1,0 +1,111 @@
+<% layout('/layouts/boilerplate') -%>
+
+    <body>
+        <div class="row mt-3">
+            <div class="col-8 offset-3">
+                <h3>
+                    <%= listenData.title %>, <%= listenData.country %>
+                </h3>
+            </div>
+            <div class="col-6 offset-3 show-cards listening-card">
+                <img src="<%= listenData.image.url %>" class="card-img-top show-image" alt="listening-image">
+
+                <div class="card-body">
+                    <p class="card-text">Created By:
+                        <%= listenData.owner.username %>
+                    </p>
+                    <p class="card-text">
+                        <%= listenData.description %>
+                    </p>
+                    <p class="card-text">&#x20B9;<%= new Intl.NumberFormat('en-IN', { currency: 'INR'
+                            }).format(listenData.price) %>
+                    </p>
+                    <p class="card-text">
+                        <%= listenData.country %>
+                    </p>
+                    <p class="card-text">
+                        <%= listenData.location %>
+                    </p>
+                    </p>
+                    <br>
+                </div>
+            </div>
+            <% if (currUser && currUser._id.equals(listenData.owner._id)) { %>
+                <div class="btns">
+                    <a href="/listening/<%= listenData._id %>/edit" class="btn btn-dark col-1 offset-3 add-btn">
+                        Edit
+                    </a>
+                    <form method="post" action="/listening/<%= listenData._id %>?_method=DELETE">
+                        <button class="btn btn-dark offset-5">Delete</button>
+                    </form>
+                </div>
+                <% } %>
+                    <div class="mb-3 col-8 offset-3">
+                        <% if (currUser) { %>
+                            <hr>
+                            <h4>Leave your Review</h4>
+                            <form method="post" action="/listening/<%= listenData._id %>/review" novalidate
+                                class="needs-validation">
+                                <div class="mb-3 mt-3">
+                                    <label for="rating">
+                                        <br>
+                                        <h4><b>Rating: </b></h4>
+                                    </label>
+                                    <fieldset class="starability-coinFlip">
+                                        <br>
+                                        <input type="radio" id="no-rate" class="input-no-rate" name="review[rating]"
+                                            value="1" checked aria-label="No rating." />
+                                        <input type="radio" id="first-rate1" name="review[rating]" value="1" />
+                                        <label for="first-rate1" title="Terrible">1 star</label>
+                                        <input type="radio" id="first-rate2" name="review[rating]" value="2" />
+                                        <label for="first-rate2" title="Not good">2 stars</label>
+                                        <input type="radio" id="first-rate3" name="review[rating]" value="3" />
+                                        <label for="first-rate3" title="Average">3 stars</label>
+                                        <input type="radio" id="first-rate4" name="review[rating]" value="4" />
+                                        <label for="first-rate4" title="Very good">4 stars</label>
+                                        <input type="radio" id="first-rate5" name="review[rating]" value="5" />
+                                        <label for="first-rate5" title="Amazing">5 stars</label>
+                                    </fieldset>
+                                </div>
+
+
+                                <div class="mb-3 mt-3">
+                                    <label for="comment" class="form-label">Comment</label>
+                                    <textarea id="comment" class="form-control" name="review[comment]" rows="5"
+                                        cols="10" required></textarea>
+                                    <div class="invalid-feedback">Please add some comments</div>
+                                </div>
+                                <button class="btn btn-outline-dark">Submit</button>
+                            </form>
+                            <% } %>
+                                <br><br>
+                    </div>
+                    <hr>
+                    <% if (listenData.reviews.length> 0) { %>
+                        <p class="reviews-heading"><b>All reviews</b></p>
+                        <div class="row"></div>
+                        <% for(review of listenData.reviews) { %>
+                            <div class="card col-5 ms-3 mb-3">
+                                <div class="card-body">
+                                    <h5 class="card-title">
+                                        <%= review.author.username %>
+                                    </h5>
+                                    <p class="starability-result" data-rating="<%= review.rating %>">
+                                        Rated: 3 stars
+                                    </p>
+                                    <p class="card-text">
+                                        <%= review.comment %>
+                                    </p>
+                                    <form method="POST"
+                                        action="/listening/<%= listenData._id %>/review/<%= review._id %>?_method=DELETE">
+                                        <button class="mb-3 btn btn-outline-dark">Delete Review</button>
+                                    </form>
+                                </div>
+                            </div>
+                            <% } %>
+                                <% } %>
+        </div>
+        </div>
+        <br><br>
+        <script src="/js/script.js"></script>
+    </body>

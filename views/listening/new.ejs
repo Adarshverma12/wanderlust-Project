@@ -1,0 +1,66 @@
+<% layout('/layouts/boilerplate') -%>
+
+    <body>
+        <div class="col-8 offset-2 mt-3">
+            <h1>Create a new Listen</h1>
+            <form method="post" action="/listening" novalidate class="needs-validation" enctype="multipart/form-data">
+
+                <div class="mb-3">
+                    <label for="title" class="form-label">Title</label>
+                    <input name="listing[title]" type="text" placeholder="catchy title" class="form-control" required>
+                    <div class="valid-feedback">
+                        Greate valid Title
+                    </div>
+                </div>
+
+                <div class="mb-3">
+                    <label for="description" class="form-label">Description</label>
+                    <textarea name="listing[description]" placeholder="Enter a brief description here" type="text"
+                        class="form-control" required></textarea>
+                    <div class="invalid-feedback">
+                        Please enter small valid description!
+                    </div>
+                </div>
+
+                <div class="mb-3">
+                    <label for="image" class="form-label">Upload Listening Image</label>
+                    <input name="listing[image]" type="file"
+                        class="form-control" required>
+                </div>
+
+                <div class="row">
+                    <div class="mb-3 col-md-4">
+                        <label for="price" class="form-label">Price</label>
+                        <input name="listing[price]"  placeholder="Enter product price"
+                            class="form-control" required>
+                        <div class="invalid-feedback">
+                            Please enter valid Price!
+                        </div>
+                    </div>
+
+                    <div class="mb-3 col-md-8">
+                        <label for="country" class="form-label">Country</label>
+                        <input name="listing[country]" type="text" placeholder="Select country of residence"
+                            class="form-control" required> 
+                            <select class="form-select" aria-label="Default select example">
+                                <option selected>Select state or country</option>
+                        <div class="invalid-feedback">
+                            Country name is not valid!
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mb-3">
+                    <label for="location" class="form-label">Location</label>
+                    <input name="listing[location]" type="text" placeholder="Type city or address" class="form-control"
+                        required>
+                    <div class="invalid-feedback">
+                        location is not valid!
+                    </div>
+                </div>
+                <button class="btn btn-dark mt-3 add-btn">Added</button>
+        </div>
+        </form>
+        <br><br>
+        <script src="/js/script.js"></script>
+    </body>

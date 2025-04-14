@@ -1,0 +1,93 @@
+<style>
+    .btn-search {
+        display: flex;
+        background-color: #fe424d;
+        color: #fff;
+        border-radius: 25px;
+        margin-left: 1rem;
+    }
+    .btn-search:hover {
+        background-color: #fe424d;
+        color: #fff;
+    }
+    .btn-search i {
+        margin-top: 0.3rem;
+        margin-right: 10px;
+    }
+    .form-control{
+        border-radius: 25px;
+        font-size: 0.9rem;
+    }
+    .form-select {
+        border-radius: 50%;
+        font-size: 0.9rem;
+        width: 0rem;
+    }
+</style>
+
+<nav class="navbar navbar-expand-md bg-body-light border-bottom sticky-top">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="/listening" style="font-size: 2.5rem; color: red; margin-left: 2rem;"><i
+                class="fa-brands fa-airbnb"></i>&nbsp;airbnb</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" href="/listening">Stays</a>
+                </li>
+            </ul>
+        </div>
+        <div class="input-search">
+            <form class="d-flex" role="search">
+                <input class="form-control me-2" type="search" placeholder="Search destination" aria-label="Search">
+                <select class="form-select" aria-label="Default select example">
+                    <option selected>Select state or country</option>
+                    <option value="1">Afghanistan</option>
+                    <option value="2">Bahamas</option>
+                    <option value="3">Cambodia</option>
+                    <option value="4">Denmark</option>
+                    <option value="5">Ethiopia</option>
+                    <option value="6">France</option>
+                    <option value="7">Germany</option>
+                    <option value="8">Hong Kong</option>
+                    <option value="9">India</option>
+                    <option value="10">Japan</option>
+                    <option value="11">Korea, Republic of (South Korea)</option>
+                    <option value="12">Liberia</option>
+                  </select>
+                <button class="btn btn-search" type="submit"><i class="fa-solid fa-magnifying-glass"></i>Search</button>
+            </form>
+        </div>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav" style=" margin-left: auto;">
+                <li class="nav-item">
+                    <a class="nav-link" style="color: #ffffff; padding: 10px 15px;" href="/listening/create/new">Airbnb
+                        your home</a>
+                </li>
+                <% if (typeof currUser === "undefined") { %>
+                    <li><span style="color: red;">currUser is undefined</span></li>
+                <% } %>
+
+                <% if (!currUser) { %>
+                    <li class="nav-item">
+                        <a class="nav-link" style="color: #ffffff; padding: 10px 15px; font-weight: bold;"
+                            href="/signUp">SignUp</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" style="color: #ffffff; padding: 10px 15px; font-weight: bold;"
+                            href="/login">LogIn</a>
+                    </li>
+                    <% } %>
+                        <% if (currUser) { %>
+                            <li class="nav-item">
+                                <a class="nav-link" style="color: #ffffff; padding: 10px 15px; font-weight: bold;"
+                                    href="/logout">Logout</a>
+                            </li>
+                            <% } %>
+            </ul>
+        </div>
+    </div>
+</nav>

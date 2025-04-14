@@ -1,0 +1,68 @@
+<% layout('/layouts/boilerplate') -%>
+    <body>
+        <div class="col-8 offset-2 mt-3">
+            <h3>Editing Details:</h3>
+            </h3>
+            <form method="post" action="/listening/<%= findId._id %>?_method=PUT" novalidate class="needs-validation"
+                enctype="multipart/form-data">
+
+                <div class="mb-3">
+                    <label for="title" class="form-label">Title</label>
+                    <input name="listing[title]" class="form-control" type="text" value="<%= findId.title %>" required>
+                    <div class="valid-feedback">
+                        Valid Title
+                    </div>
+                </div>
+
+                <div class="mb-3">
+                    <label for="description" class="form-label">Description</label>
+                    <textarea class="form-control" name="listing[description]" type="text"
+                        required><%= findId.description %></textarea>
+                    <div class="invalid-feedback">
+                        Please enter a description!
+                    </div>
+                </div>
+
+                <div class="mb-3">
+                    <img src="<%= originalURL %>" alt="">
+                </div>
+
+                <div class="mb-3">
+                    <label for="image" class="form-label">Upload new Image</label>
+                    <input class="form-control" name="listing[image]" type="file">
+                </div>
+
+                <div class="row">
+                    <div class="mb-3 col-md-4">
+                        <label for="price" class="form-label">Price</label>
+                        <input class="form-control" name="listing[price]" type="number" value="<%= findId.price %>"
+                            required>
+                        <div class="invalid-feedback">
+                            Price is not valid!
+                        </div>
+                    </div>
+
+                    <div class="mb-3 col-md-8">
+                        <label for="country" class="form-label">Country</label>
+                        <input class="form-control" name="listing[country]" type="text" value="<%= findId.country %>"
+                            required>
+                        <div class="invalid-feedback">
+                            Enter a valid country name!
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mb-3">
+                    <label for="location" class="form-label">Location</label>
+                    <input class="form-control" name="listing[location]" type="text" value="<%= findId.location %>"
+                        required>
+                    <div class="invalid-feedback">
+                        Enter a valid location!
+                    </div>
+                </div>
+                <button class="btn btn-dark mt-3 add-btn">Update</button>
+            </form>
+        </div>
+        <br><br>
+        <script src="/js/script.js"></script>
+    </body>
